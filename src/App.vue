@@ -50,6 +50,14 @@
       </div>
     </div>
   </div>
+  <div>
+    <DxButton @click="popupVisible=true" text="Show popup"></DxButton>
+  </div>
+  <DxPopup v-model:visible="popupVisible">
+    <div>
+      test content
+    </div>
+  </DxPopup>
 </template>
 
 <script>
@@ -57,8 +65,10 @@
 import 'devextreme/data/odata/store';
 
 import { DxDataGrid, DxPager, DxPaging } from 'devextreme-vue/data-grid';
+import { DxPopup} from "devextreme-vue/popup"
 import DxNumberBox from 'devextreme-vue/number-box';
 import DxCheckBox from 'devextreme-vue/check-box';
+import DxButton from "devextreme-vue/button"
 
 const dataGridRefName = 'dataGrid';
 const taskIdEditorRefName = 'taskIdEditor';
@@ -69,10 +79,13 @@ export default {
     DxPager,
     DxPaging,
     DxNumberBox,
-    DxCheckBox
+    DxCheckBox,
+    DxPopup,
+    DxButton
   },
   data() {
     return {
+      popupVisible: false,
       taskIdEditorRefName: taskIdEditorRefName,
       dataGridRefName: dataGridRefName,
       taskSubject: '',
